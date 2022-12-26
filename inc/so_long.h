@@ -15,18 +15,22 @@
 // Output text colors
 # define RED	"\033[1m\033[31m"
 # define GREEN	"\033[1m\033[32m"
-# define YELLOW	"\033[1m\033[32m"
+# define YELLOW	"\033[1m\033[33m"
 # define RESET	"\033[0m"
 
 // Keyboard keys codes
-# define UP		13
-# define RIGHT	2
-# define DOWN	1
-# define LEFT	0
+# define UP1	13
+# define UP2	126
+# define RIGHT1	2
+# define RIGHT2	124
+# define DOWN1	1
+# define DOWN2	125
+# define LEFT1	0
+# define LEFT2	123
 # define ESC	53
 
 // Size
-# define SIZE	42
+# define SIZE	48
 
 // Utility structs
 typedef struct s_player {
@@ -44,6 +48,7 @@ typedef struct s_game {
 	int			check_coin;
 	int			check_player;
 	int			check_exit;
+	int			exit_coordinates[2];
 	size_t		x;
 	int			y;
 }	t_game;
