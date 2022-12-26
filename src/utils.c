@@ -5,7 +5,7 @@ void	message(char *msg, int fd, t_game *game)
 {
 	ft_putendl_fd(msg, fd);
 	destroy_map(game);
-	exit(0);
+	exit(EXIT_FAILURE);
 }
 
 // counts the length of a line
@@ -43,7 +43,7 @@ int	lines_count(int fd)
 		if (buffer == '\n')
 			count++;
 	}
-	return (count);
+	return (count - 1);
 }
 
 void	*ptr_free(void *ptr)
