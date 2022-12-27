@@ -20,7 +20,7 @@ void	open_exit(t_game *game)
 {
 	t_image	image;
 
-	image.path = "./res/floor.xpm";
+	image.path = "./res/open.xpm";
 	image.game = *game;
 	put_image(image, game->exit_coordinates[0], game->exit_coordinates[1]);
 }

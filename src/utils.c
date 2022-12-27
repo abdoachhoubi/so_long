@@ -31,19 +31,20 @@ int	line_length(int fd)
 int	lines_count(int fd)
 {
 	int		count;
-	char	buffer;
+	char	*buffer;
 	int		bytes;
 
-	buffer = '\0';
-	count = 1;
+	count = 0;
 	bytes = 1;
-	while (bytes == 1)
+	buffer = get_next_line(fd);
+	while (buffer)
 	{
-		bytes = read(fd, &buffer, 1);
-		if (buffer == '\n')
-			count++;
+		free(buffer);
+		buffer = get_next_line(fd);
+		count++;
 	}
-	return (count - 1);
+	count++;
+	return (count);
 }
 
 void	*ptr_free(void *ptr)

@@ -87,6 +87,8 @@ void	create_map_line(t_game *game, char **av)
 
 	game->map = (char **)malloc(sizeof(char *) * (9999));
 	fd = open(av[1], O_RDONLY);
+	if (fd < 0)
+		message(RED"Error: File not found!"RESET, 1, game);
 	i = 0;
 	while (i <= game -> y / 48)
 	{

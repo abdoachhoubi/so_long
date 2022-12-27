@@ -17,6 +17,7 @@ void	win_size(t_game *game, char **av)
 		message(RED"Error:\nFile not found\n"RESET, 2, game);
 	if (ft_strnstr(av[1], ".ber", ft_strlen(av[1])) == NULL)
 		message(RED"Error:\nYour map does not have a .ber extension\n"RESET, 2, game);
-	game->x = (line_length(fd) * 48);
-	game->y = lines_count(fd) * 48;
+	game->x = (line_length(fd) * SIZE);
+	game->y = lines_count(fd) * SIZE;
+	close(fd);
 }
