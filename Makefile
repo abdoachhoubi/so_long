@@ -1,5 +1,6 @@
 SRC = ${addprefix src/, check.c controllers.c image.c controls.c} \
-		${addprefix src/, map.c setup.c utils.c win.c so_long.c}
+		${addprefix src/, map.c setup.c utils.c win.c so_long.c} \
+		src/valid_path.c
 
 LIBFT = libft/libft.a
 

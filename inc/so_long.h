@@ -98,4 +98,12 @@ void	message(char *msg, int fd, t_game *game);
 int		line_length(int fd);
 int		lines_count(int fd);
 
+// Check if map is valid
+int		chrcmp(char *c1, char c2);
+void	flood_fill(char **map, int x, int y, int height, int width);
+void	print_map(char **map);
+char	**get_map(char *path, t_game *game);
+int		valid_path(t_game *game, char *path);
+int		check_coins(char **map);
+
 #endif
