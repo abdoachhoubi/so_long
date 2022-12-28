@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   controls.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aachhoub <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/12/28 15:05:43 by aachhoub          #+#    #+#             */
+/*   Updated: 2022/12/28 15:09:59 by aachhoub         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../inc/so_long.h"
 
 // Controlls the walls
@@ -15,11 +27,11 @@ void	wall_controller(t_game *game)
 		while (x < (game->x / SIZE))
 		{
 			if ((y == 0 || x == 0) && game->map[y][x] != '1')
-				message(s, 2, game);
+				message_destroy(s, 2, game);
 			else if ((y == (game->y / SIZE - 1)
 					|| x == (game->x / SIZE - 1))
 				&& game->map[y][x] != '1')
-				message(s, 2, game);
+				message_destroy(s, 2, game);
 			x++;
 		}
 		y++;
@@ -45,11 +57,13 @@ void	map_controller(t_game *game)
 		i++;
 	}
 	if (game->check_coin == 0)
-		message(RED"Error:\nThere are no coins in the map!\n"RESET, 2, game);
+		message_destroy(RED"Error:\nCoins not found!\n"RESET, 2, game);
 	if (game->check_exit == 0)
-		message(RED"Error:\nThere is no exit door on the map!\n"RESET, 2, game);
+		message_destroy(RED"Error:\nExit not found!\n"RESET, 2, game);
+	if (game->check_exit != 1)
+		message_destroy(RED"Error:\nMore than one exit!\n"RESET, 2, game);
 	if (game->check_player != 1)
-		message(RED"Error:\nOnly one player is allowed\n"RESET, 2, game);
+		message_destroy(RED"Error:\nMore then one player\n"RESET, 2, game);
 }
 
 // Controls the game

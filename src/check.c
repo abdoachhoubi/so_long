@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   check.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aachhoub <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/12/28 15:04:06 by aachhoub          #+#    #+#             */
+/*   Updated: 2022/12/28 15:05:12 by aachhoub         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../inc/so_long.h"
 
-// Checks which key is clicked
+// Handles key clicks
 int	key_pressed(int code, t_game *game)
 {
 	if (code == ESC)
@@ -16,6 +28,7 @@ int	key_pressed(int code, t_game *game)
 	return (0);
 }
 
+// Opens the exit door
 void	open_exit(t_game *game)
 {
 	t_image	image;
@@ -25,7 +38,7 @@ void	open_exit(t_game *game)
 	put_image(image, game->exit_coordinates[0], game->exit_coordinates[1]);
 }
 
-// Checks the outcome of a move
+// Handles moves
 int	move_check(t_game *game, int i, int j)
 {
 	if (game->map[i][j] == '1')
@@ -44,7 +57,7 @@ int	move_check(t_game *game, int i, int j)
 			ft_putendl_fd(RED"You must collect all coins"RESET, 1);
 			return (1);
 		}
-		message(GREEN"Congratulations uwu\n"RESET, 1, game);
+		message_destroy(GREEN"Congratulations uwu\n"RESET, 1, game);
 		return (0);
 	}
 	return (0);

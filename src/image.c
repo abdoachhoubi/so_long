@@ -1,9 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   image.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aachhoub <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/12/28 15:27:12 by aachhoub          #+#    #+#             */
+/*   Updated: 2022/12/28 15:27:22 by aachhoub         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../inc/so_long.h"
 
 // Puts an image in the window
 void	*put_image(t_image image, int x, int y)
 {
-	image.img = mlx_xpm_file_to_image(image.game.mlx, image.path, &image.width, &image.height);
+	image.img = mlx_xpm_file_to_image(image.game.mlx,
+			image.path, &image.width, &image.height);
 	mlx_put_image_to_window(image.game.mlx, image.game.win, image.img, x, y);
 	return (image.img);
 }

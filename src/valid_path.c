@@ -1,96 +1,55 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   valid_path.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aachhoub <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/12/28 15:12:10 by aachhoub          #+#    #+#             */
+/*   Updated: 2022/12/28 15:24:15 by aachhoub         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../inc/so_long.h"
 
-void	print_map(char **map)
+void	flood_fill(char **map, int x, int y, int *dim)
 {
-	int i;
-    int j;
-
-    i = 0;
-    ft_putchar_fd('\n', 1);
-    while (map[i])
-    {
-        j = 0;
-        while (map[i][j])
-        {
-            ft_putchar_fd(map[i][j], 1);
-            j++;
-        }
-        ft_putchar_fd('\n', 1);
-        i++;
-    }
-}
-
-char	**get_map(char *path, t_game *game)
-{
-	int		fd;
-	char	*s;
-	int		len;
-	char	**map;
-
-	fd = open(path, O_RDONLY);
-	if (fd == -1)
-		message(RED"Error: Couldn't open the map!"RESET, 2, game);
-	s = ft_calloc(1, 10000);
-	if (!s)
-		message(RED"Error: Allocation Failed!"RESET, 2, game);
-	len = read(fd, s, 9999);
-	if (len <= 0)
-		message(RED"Error: Couldn't read map!"RESET, 2, game);
-	map = ft_split(s, '\n');
-	if (!map)
-		message(RED"Error: ft_split!"RESET, 2, game);
-	free(s);
-	return (map);
-}
-
-int	chrcmp(char *c1, char c2)
-{
-	if (c1[0] != c2 && c1[1] != c2 && c1[2] != c2)
-		return (1);
-	else
-		return (0);
-}
-
-void flood_fill(char **map, int x, int y, int height, int width)
-{
-    if (x < 0 || x >= width || y < 0 || y >= width || chrcmp("PC0", map[x][y]) == 1) {
-        return;
-    }
-    map[x][y] = 'F';
-
-    // Recursively fill the surrounding pixels with the new color
-    flood_fill(map, x + 1, y, height, width);
-    flood_fill(map, x - 1, y, height, width);
-    flood_fill(map, x, y + 1, height, width);
-    flood_fill(map, x, y - 1, height, width);
+	if (x < 0 || x >= dim[0] || y < 0
+		|| y >= dim[0] || chrcmp("PC0", map[x][y]) == 1)
+		return ;
+	map[x][y] = 'F';
+	flood_fill(map, x + 1, y, dim);
+	flood_fill(map, x - 1, y, dim);
+	flood_fill(map, x, y + 1, dim);
+	flood_fill(map, x, y - 1, dim);
 }
 
 int	check_coins(char **map)
 {
-	int i;
-    int j;
+	int	i;
+	int	j;
 	int	count;
 
-    i = 0;
+	i = 0;
 	count = 0;
-    while (map[i])
-    {
-        j = 0;
-        while (map[i][j])
-        {
+	while (map[i])
+	{
+		j = 0;
+		while (map[i][j])
+		{
 			if (map[i][j] == 'C')
 				count++;
-            j++;
-        }
-        i++;
-    }
+			j++;
+		}
+		i++;
+	}
 	return (count);
 }
 
 int	check_exit(char **map, int x, int y)
 {
 	if (map[x + 1][y] == 'F' || map[x - 1][y] == 'F'
-		|| map[x][y + 1] =='F' || map[x][y - 1] == 'F')
+		|| map[x][y + 1] == 'F' || map[x][y - 1] == 'F')
 		return (0);
 	else
 		return (-1);
@@ -121,11 +80,14 @@ int	valid_exit(char **map)
 int	valid_path(t_game *game, char *path)
 {
 	char	**map;
+	int		dim[2];
 	int		check;
 	int		i;
 
 	map = get_map(path, game);
-	flood_fill(map, game -> player.y / 48, game -> player.x / 48, game -> y / 48, game -> x / 48);
+	dim[0] = game -> x / 48;
+	dim[1] = game -> y / 48;
+	flood_fill(map, game -> player.y / 48, game -> player.x / 48, dim);
 	check = check_coins(map);
 	i = 0;
 	while (map[i])
