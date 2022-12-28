@@ -2,13 +2,13 @@
 
 ## Table of content
 
-[1. Description](#description)
+1. [Description](#description)
 
-[2. Functions](#functions)
+2. [Functions](#functions)
 
-[3. Macros](#macros)
+3. [Macros](#macros)
 
-[4. Structs](#structs)
+4. [Structs](#structs)
 
 ## Description
 
