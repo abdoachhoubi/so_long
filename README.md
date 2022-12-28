@@ -3,7 +3,9 @@
 ## Table of content
 
 [1. Description](#description)
+
 [2. Functions](#functions)
+
 [3. Macros](#macros)
 
 ## Description
