@@ -45,6 +45,13 @@
 # define SIZE	48
 
 // Utility structs
+typedef struct s_enemy {
+	int	x;
+	int	y;
+	int	x_map;
+	int	y_map;
+}	t_enemy;
+
 typedef struct s_player {
 	int		x;
 	int		y;
@@ -54,9 +61,11 @@ typedef struct s_player {
 
 typedef struct s_game {
 	t_player	player;
+	t_enemy		*enemies;
 	void		*mlx;
 	void		*win;
 	char		**map;
+	int			e_count;
 	int			check_coin;
 	int			check_player;
 	int			check_exit;
@@ -118,5 +127,15 @@ void	print_map(char **map);
 char	**get_map(char *path, t_game *game);
 int		valid_path(t_game *game, char *path);
 int		check_coins(char **map);
+
+// Bonus utils
+void	clear_text(t_game *game);
+void	display_count(t_game *game, int count, int bonus);
+int enemies_count(t_game *game);
+int	enemy_move_check(t_game *game, int i, int j);
+void    update_enemy(t_game *game, t_image image, int i, int j, int x);
+void    move_enemie(t_game *game, t_image image, int x);
+void    move_enemies(t_game *game);
+void    enemies(t_game  *game);
 
 #endif

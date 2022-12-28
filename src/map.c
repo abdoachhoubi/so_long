@@ -58,9 +58,9 @@ void	create_floor(t_game game, int b)
 
 	image.game = game;
 	j = 0;
-	if (ft_strlen(game.map[b]) != game.x / 48 && b != (game.y / 48))
+	if (ft_strlen(game.map[b]) != game.x / SIZE && b != (game.y / SIZE))
 		message_destroy(RED"Error:\nThe map is not rectangular\n"RESET, 2, &game);
-	if (game.map[(game.y / 48)] && game.map[(game.y / 48)][0] != '\0')
+	if (game.map[(game.y / SIZE)] && game.map[(game.y / SIZE)][0] != '\0')
 		message_destroy(RED"Error:\nInvalid map\n"RESET, 2, &game);
 	while (game.map[b])
 	{
@@ -106,7 +106,7 @@ void	create_map_line(t_game *game, char **av)
 	if (fd < 0)
 		message_destroy(RED"Error: File not found!"RESET, 1, game);
 	i = 0;
-	while (i <= game -> y / 48)
+	while (i <= game -> y / SIZE)
 	{
 		area = get_next_line(fd);
 		if (area == NULL)

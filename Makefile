@@ -16,7 +16,7 @@ SRC = ${addprefix src/, check.c controllers.c image.c controls.c} \
 
 BSRC = ${addprefix bonus/, check.c controllers.c image.c controls.c} \
 		${addprefix bonus/, map.c setup.c utils.c win.c so_long.c} \
-		${addprefix bonus/, valid_path.c valid_path_utils.c}
+		${addprefix bonus/, valid_path.c valid_path_utils.c patrols.c}
 
 LIBFT = libft/libft.a
 

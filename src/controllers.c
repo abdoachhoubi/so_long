@@ -32,8 +32,8 @@ void	right(t_game *game)
 	image.path = "./res/player.xpm";
 	image.game = *game;
 	i = game->player.y;
-	j = game->player.x + 48;
-	if ((move_check(game, (i / 48), (j / 48)) != 1))
+	j = game->player.x + SIZE;
+	if ((move_check(game, (i / SIZE), (j / SIZE)) != 1))
 	{
 		game->player.move++;
 		ft_printf(GREEN"Moves count = %d\n"RESET, game->player.move);
@@ -53,8 +53,8 @@ void	left(t_game *game)
 	image.path = "./res/left.xpm";
 	image.game = *game;
 	i = game->player.y;
-	j = game->player.x - 48;
-	if ((move_check(game, (i / 48), (j / 48)) != 1))
+	j = game->player.x - SIZE;
+	if ((move_check(game, (i / SIZE), (j / SIZE)) != 1))
 	{
 		game->player.move++;
 		ft_printf(GREEN"moves count = %d\n"RESET, game->player.move);
@@ -73,9 +73,9 @@ void	up(t_game *game)
 
 	image.path = "./res/player.xpm";
 	image.game = *game;
-	i = game->player.y - 48;
+	i = game->player.y - SIZE;
 	j = game->player.x;
-	if ((move_check(game, (i / 48), (j / 48)) != 1))
+	if ((move_check(game, (i / SIZE), (j / SIZE)) != 1))
 	{
 		game->player.move++;
 		ft_printf(GREEN"moves count = %d\n"RESET, game->player.move);
@@ -94,9 +94,9 @@ void	down(t_game *game)
 
 	image.path = "./res/player.xpm";
 	image.game = *game;
-	i = game->player.y + 48;
+	i = game->player.y + SIZE;
 	j = game->player.x;
-	if ((move_check(game, (i / 48), (j / 48)) != 1))
+	if ((move_check(game, (i / SIZE), (j / SIZE)) != 1))
 	{
 		game->player.move++;
 		ft_printf(GREEN"moves count = %d\n"RESET, game->player.move);
