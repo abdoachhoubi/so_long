@@ -6,13 +6,13 @@
 /*   By: aachhoub <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 18:23:10 by aachhoub          #+#    #+#             */
-/*   Updated: 2022/10/24 15:55:25 by aachhoub         ###   ########.fr       */
+/*   Updated: 2022/12/28 15:31:18 by aachhoub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char *ft_strjoin_free(char const *s1, char const *s2)
+static char	*ft_strjoin_free(char const *s1, char const *s2)
 {
 	char	*str;
 	int		s1_len;
