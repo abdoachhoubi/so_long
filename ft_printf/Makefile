@@ -20,17 +20,17 @@ CFLAGS = -Wall -Wextra -Werror
 RM = rm -rf
 
 %.o:%.c
-	$(CC) $(CFLAGS) -c $<
+	@$(CC) $(CFLAGS) -c $<
 
 all : $(NAME)
 
 $(NAME): $(OBJ)
-	$(LIBR) $(NAME) $(OBJ)
+	@$(LIBR) $(NAME) $(OBJ)
 
 clean:
-	$(RM) $(OBJ)
+	@$(RM) $(OBJ)
 
 fclean: clean
-	$(RM) $(NAME)
+	@$(RM) $(NAME)
 
 re: fclean all

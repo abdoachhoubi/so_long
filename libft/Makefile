@@ -33,20 +33,20 @@ CC = cc
 FLAGS = -Wall -Wextra -Werror
 
 %.o : %.c
-	$(CC) $(FLAGS) -c $<
+	@$(CC) $(FLAGS) -c $<
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(AR) $(NAME) $(OBJ)
+	@$(AR) $(NAME) $(OBJ)
 
 bonus: $(NAME) $(BOBJ)
-	$(AR) $(NAME) $(BOBJ)
+	@$(AR) $(NAME) $(BOBJ)
 
 clean:
-	$(RM) $(OBJ) $(BOBJ)
+	@$(RM) $(OBJ) $(BOBJ)
 
 fclean: clean
-	$(RM) $(NAME)
+	@$(RM) $(NAME)
 
 re: fclean all
