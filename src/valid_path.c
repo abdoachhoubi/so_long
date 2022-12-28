@@ -85,9 +85,9 @@ int	valid_path(t_game *game, char *path)
 	int		i;
 
 	map = get_map(path, game);
-	dim[0] = game -> x / 48;
-	dim[1] = game -> y / 48;
-	flood_fill(map, game -> player.y / 48, game -> player.x / 48, dim);
+	dim[0] = game -> x / SIZE;
+	dim[1] = game -> y / SIZE;
+	flood_fill(map, game -> player.y / SIZE, game -> player.x / SIZE, dim);
 	check = check_coins(map);
 	i = 0;
 	while (map[i])
