@@ -8,6 +8,8 @@
 
 [3. Macros](#macros)
 
+[4. Structs](#structs)
+
 ## Description
 
 This project is a very small 2D game in C.
