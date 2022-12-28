@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   so_long.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aachhoub <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/12/28 15:30:14 by aachhoub          #+#    #+#             */
+/*   Updated: 2022/12/28 15:30:15 by aachhoub         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
@@ -94,13 +106,14 @@ void	left(t_game *game);
 
 // Utils
 void	*ptr_free(void *ptr);
-void	message(char *msg, int fd, t_game *game);
+void	message_destroy(char *msg, int fd, t_game *game);
+void	message_exit(char *msg, int fd);
 int		line_length(int fd);
 int		lines_count(int fd);
 
 // Check if map is valid
 int		chrcmp(char *c1, char c2);
-void	flood_fill(char **map, int x, int y, int height, int width);
+void	flood_fill(char **map, int x, int y, int *dim);
 void	print_map(char **map);
 char	**get_map(char *path, t_game *game);
 int		valid_path(t_game *game, char *path);
