@@ -31,6 +31,8 @@ Its purpose is to make you work with textures, sprites, and some other very basi
 
 ## Functions
 
+### Mandatory:
+
 - [x] message_exit: Prints a message, and exits the program.
 - [x] win_size: Counts the window size.
 - [x] line_length: Counts the length of a line in the map.
