@@ -90,10 +90,10 @@ int	valid_path(t_game *game, char *path)
 	flood_fill(map, game -> player.y / SIZE, game -> player.x / SIZE, dim);
 	check = check_coins(map);
 	i = 0;
+	if (check == 0)
+		check = valid_exit(map);
 	while (map[i])
 		free(map[i++]);
 	free(map);
-	if (check == 0)
-		check = valid_exit(map);
 	return (check);
 }
