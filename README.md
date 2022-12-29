@@ -63,6 +63,11 @@ Its purpose is to make you work with textures, sprites, and some other very basi
 - [x] down: Handles a move towards DOWN.
 - [x] left: Handles a move towards LEFT.
 
+### Bonus:
+
+- [x] clear_text: Clears the Moves and Collectibles counts.
+- [x] display_count: Displays the count of Moves and Collectibles.
+
 ## Macros
 
 ```c
