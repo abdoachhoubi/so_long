@@ -29,7 +29,7 @@ void	right(t_game *game)
 	int		j;
 	t_image	image;
 
-	image.path = "./res/player.xpm";
+	image.path = "./res/right.xpm";
 	image.game = *game;
 	i = game->player.y;
 	j = game->player.x + SIZE;
@@ -71,7 +71,7 @@ void	up(t_game *game)
 	int		j;
 	t_image	image;
 
-	image.path = "./res/player.xpm";
+	image.path = "./res/hero.xpm";
 	image.game = *game;
 	i = game->player.y - SIZE;
 	j = game->player.x;
@@ -92,7 +92,7 @@ void	down(t_game *game)
 	int		j;
 	t_image	image;
 
-	image.path = "./res/player.xpm";
+	image.path = "./res/hero.xpm";
 	image.game = *game;
 	i = game->player.y + SIZE;
 	j = game->player.x;

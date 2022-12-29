@@ -30,7 +30,7 @@ t_block	set_block(char name)
 	blocks[0] = (t_block){"1", "./res/wall.xpm"};
 	blocks[1] = (t_block){"0", "./res/floor.xpm"};
 	blocks[2] = (t_block){"C", "./res/coin.xpm"};
-	blocks[3] = (t_block){"P", "./res/player.xpm"};
+	blocks[3] = (t_block){"P", "./res/hero.xpm"};
 	blocks[4] = (t_block){"E", "./res/exit.xpm"};
 	blocks[5] = (t_block){NULL, NULL};
 	i = 0;
