@@ -62,7 +62,7 @@ typedef struct s_game {
 	int			check_coin;
 	int			check_player;
 	int			check_exit;
-	int			exit_coordinates[2];
+	int			exit_pos[2];
 	size_t		x;
 	int			y;
 }	t_game;
@@ -84,10 +84,10 @@ typedef struct s_block {
 void	initialize(t_game *game);
 void	win_size(t_game *game, char **av);
 void	create_map(t_game *game, int i);
-void	create_floor(t_game game, int b);
+void	create_floor(t_game *game, int b);
 void	create_map_len(char *area, t_game *game, int i);
 void	create_map_line(t_game *game, char **av);
-void	*put_image(t_image image, int x, int y);
+void	*put_image(t_game *game, t_image image, int x, int y);
 
 // Callback functions
 t_block	set_block(char name);

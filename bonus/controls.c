@@ -19,7 +19,7 @@ void	wall_controller(t_game *game)
 	int		y;
 	char	*s;
 
-	s = RED"Error:\nThe map must be surrounded by walls\n"RESET;
+	s = RED"Error:\nThe map must be surrounded by walls"RESET;
 	y = 0;
 	while (y < (game->y / SIZE))
 	{
@@ -57,13 +57,13 @@ void	map_controller(t_game *game)
 		i++;
 	}
 	if (game->check_coin == 0)
-		message_destroy(RED"Error:\nCoins not found!\n"RESET, 2, game);
+		message_destroy(RED"Error:\nCoins not found!"RESET, 2, game);
 	if (game->check_exit == 0)
-		message_destroy(RED"Error:\nExit not found!\n"RESET, 2, game);
+		message_destroy(RED"Error:\nExit not found!"RESET, 2, game);
 	if (game->check_exit != 1)
-		message_destroy(RED"Error:\nMore than one exit!\n"RESET, 2, game);
+		message_destroy(RED"Error:\nMore than one exit!"RESET, 2, game);
 	if (game->check_player != 1)
-		message_destroy(RED"Error:\nMore then one player\n"RESET, 2, game);
+		message_destroy(RED"Error:\nMore then one player"RESET, 2, game);
 }
 
 // Controls the game

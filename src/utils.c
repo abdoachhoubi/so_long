@@ -67,6 +67,7 @@ int	lines_count(int fd)
 	return (count);
 }
 
+// Free a ptr and assign null to it
 void	*ptr_free(void *ptr)
 {
 	free(ptr);

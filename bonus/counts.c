@@ -17,12 +17,12 @@ void	clear_text(t_game *game)
 	t_image	image;
 	size_t	i;
 
-	image.path = "./res/bg.xpm";
+	image.path = "./textures/bg.xpm";
 	image.game = *game;
 	i = 0;
 	while (i <= game -> x)
 	{
-		put_image(image, i, game -> y);
+		put_image(game, image, i, game -> y);
 		i += SIZE;
 	}
 }

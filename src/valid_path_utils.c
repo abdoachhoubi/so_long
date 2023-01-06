@@ -21,16 +21,16 @@ char	**get_map(char *path, t_game *game)
 
 	fd = open(path, O_RDONLY);
 	if (fd == -1)
-		message_destroy(RED"Error: Couldn't open the map!"RESET, 2, game);
+		message_destroy(RED"Error:\nCouldn't open the map!"RESET, 2, game);
 	s = ft_calloc(1, 10000);
 	if (!s)
-		message_destroy(RED"Error: Allocation Failed!"RESET, 2, game);
+		message_destroy(RED"Error:\nAllocation Failed!"RESET, 2, game);
 	len = read(fd, s, 9999);
 	if (len <= 0)
-		message_destroy(RED"Error: Couldn't read map!"RESET, 2, game);
+		message_destroy(RED"Error:\nCouldn't read map!"RESET, 2, game);
 	map = ft_split(s, '\n');
 	if (!map)
-		message_destroy(RED"Error: ft_split!"RESET, 2, game);
+		message_destroy(RED"Error:\nft_split!"RESET, 2, game);
 	free(s);
 	return (map);
 }

@@ -33,9 +33,9 @@ void	open_exit(t_game *game)
 {
 	t_image	image;
 
-	image.path = "./res/open.xpm";
+	image.path = "./textures/open.xpm";
 	image.game = *game;
-	put_image(image, game->exit_coordinates[0], game->exit_coordinates[1]);
+	put_image(game, image, game->exit_pos[0], game->exit_pos[1]);
 }
 
 // Handles moves
@@ -59,7 +59,7 @@ int	move_check(t_game *game, int i, int j)
 			ft_putendl_fd(RED"You must collect all coins"RESET, 1);
 			return (1);
 		}
-		message_destroy(GREEN"congratulations uwu"RESET, 1, game);
+		message_destroy(GREEN"Congrats hero uwu"RESET, 1, game);
 		return (0);
 	}
 	return (0);

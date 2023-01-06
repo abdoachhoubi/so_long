@@ -18,7 +18,7 @@ int	main(int ac, char **av)
 	int		path;
 
 	if (ac != 2)
-		message_exit(RED"Error: only accepts 2 arguments", 2);
+		message_exit(RED"Error:\nProgram accepts only 2 arguments", 2);
 	win_size(&game, av);
 	game.mlx = mlx_init();
 	game.win = mlx_new_window(game.mlx, game.x, game.y, "Astro");
@@ -28,10 +28,10 @@ int	main(int ac, char **av)
 	path = valid_path(&game, av[1]);
 	if (path == 1)
 		message_destroy(RED
-			"Error: The player can't reach coins"RESET, 2, &game);
+			"Error:\nThe player can't reach coins"RESET, 2, &game);
 	if (path == -1)
 		message_destroy(RED
-			"Error: The player can't reach exit"RESET, 2, &game);
+			"Error:\nThe player can't reach exit"RESET, 2, &game);
 	mlx_hook(game.win, 17, 1L << 2, destroy_win, &game);
 	mlx_key_hook(game.win, key_pressed, &game);
 	mlx_loop(game.mlx);

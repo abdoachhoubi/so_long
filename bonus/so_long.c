@@ -27,7 +27,7 @@ int	main(int ac, char **av)
 	create_map_line(&game, av);
 	game_controller(&game);
 	if (valid_path(&game, av[1]) != 0)
-		message_destroy(RED"Error: Invalid Path"RESET, 2, &game);
+		message_destroy(RED"Error:\nInvalid Path"RESET, 2, &game);
 	display_count(&game, 0, 0);
 	mlx_hook(game.win, 17, 1L << 2, destroy_win, &game);
 	mlx_key_hook(game.win, key_pressed, &game);
