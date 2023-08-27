@@ -26,13 +26,19 @@ NAME = so_long
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = 
 
-MLX = -g -framework OpenGL AppKit -L./mlx -lmlx
+MLX = ./minilibx-macos/libmlx.a -lmlx -framework OpenGL -framework AppKit -I minilibx-macos -L minilibx-macos
+
+MLXLINUX = ./minilibx-linux/libmlx.a -lXext -lX11 -lm
 
 all: ${NAME}
 
-${NAME}: ${LIBFT} ${PRINTF}
+linux: ${MLXLINUX} ${LIBFT} ${PRINTF}
+		@echo "Compiled so_long"
+		@${CC} ${CFLAGS} ${BSRC} ${LIBFT} ${PRINTF} ${MLXLINUX} -o ${NAME}
+
+${NAME}: ${LIBFT} ${PRINTF} ${MLX}
 		@echo "Compiled so_long"
 		@${CC} ${CFLAGS} ${SRC} ${LIBFT} ${PRINTF} ${MLX} -o ${NAME}
 
@@ -48,6 +54,10 @@ ${LIBFT}:
 ${PRINTF}:
 		@echo "Compiled ft_printf"
 		@make -C ft_printf
+
+${MLX}:
+		@echo "Compiled Minilibx"
+		@make -C minilibx-linux
 
 clean:
 		@echo "Deleted Object Files"

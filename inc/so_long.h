@@ -22,8 +22,19 @@
 // External libraries
 # include "../libft/libft.h"
 # include "../ft_printf/ft_printf.h"
-# include "../mlx/mlx.h"
 
+// check which os is used
+# ifdef __APPLE__
+#  define OS 1
+# else
+#  define OS 0
+# endif
+
+# if OS == 1
+#  include "../minilibx-macos/mlx.h"
+# elif OS == 0
+#  include "../minilibx-linux/mlx.h"
+# endif
 // Output text colors
 # define RED	"\033[1m\033[31m"
 # define GREEN	"\033[1m\033[32m"
