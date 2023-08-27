@@ -52,10 +52,8 @@ int	lines_count(int fd)
 {
 	int		count;
 	char	*buffer;
-	int		bytes;
 
 	count = 0;
-	bytes = 1;
 	buffer = get_next_line(fd);
 	while (buffer)
 	{

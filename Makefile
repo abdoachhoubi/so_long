@@ -28,7 +28,7 @@ CC = cc
 
 CFLAGS = -Wall -Wextra -Werror
 
-MLX = -g -framework OpenGL -framework AppKit -L./mlx -lmlx
+MLX = -g -framework OpenGL AppKit -L./mlx -lmlx
 
 all: ${NAME}
 

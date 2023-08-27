@@ -82,9 +82,7 @@ void	create_floor(t_game *game, int b)
 void	create_map_len(char *area, t_game *game, int i)
 {
 	int		j;
-	t_image	image;
-
-	image.game = *game;
+	
 	j = 0;
 	game->map[i] = (char *)malloc(sizeof(char) * (9999));
 	while (area[j] && area[j] != '\n')
